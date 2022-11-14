@@ -3,13 +3,16 @@ import styled from 'styled-components'
 export const HomeContainer = styled.div`
   display: flex;
   gap: 4rem;
+  margin-left: 15rem;
 `
 export const SidebarContainer = styled.div`
   background: ${(props) => props.theme['background-color']};
   border: 2px solid ${(props) => props.theme['blue-linear']};
+  font-size: 1.6rem;
   border-radius: 8px;
   overflow: hidden;
-  height: 36rem;
+  height: 48.2rem;
+  width: 33.8rem;
   margin-left: 4rem;
   margin-top: 4rem;
   img {
@@ -21,18 +24,19 @@ export const SidebarContainer = styled.div`
   footer {
     border-top: 1px solid;
     color: var(--gray-600);
-    margin-top: 2rem;
+    margin-top: 5rem;
     padding-inline: 3.2rem;
-    padding-top: 1.6rem;
+    padding-top: 6rem;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 
   footer a {
     background-color: transparent;
     width: 100%;
     height: 5rem;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: var(--green-580);
     text-decoration: none;
@@ -68,14 +72,14 @@ export const ProfileContainer = styled.div`
   margin-bottom: 1rem;
 
   strong {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin-top: 1rem;
     color: ${(props) => props.theme['blue-linear']};
     line-height: 1.6;
   }
 
   span {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     color: ${(props) => props.theme['icon-details']};
     line-height: 1.6;
   }
@@ -85,7 +89,7 @@ export const OkrsInfoContainer = styled.div`
   border-radius: 8px;
   padding-top: 2rem;
   width: 80rem;
-  height: 36rem;
+  height: 48.5rem;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -159,20 +163,4 @@ export const Status = styled.span<StatusProps>`
     border-radius: 999px;
     background: ${(props) => props.theme[STATUS_COLORS[props.statusColor]]};
   }
-`
-
-export const CalendarContainer = styled.div`
-  position: fixed;
-  top: 64rem;
-  left: 20rem;
-  bottom: 10rem;
-  width: 154rem;
-  height: 16rem;
-  border: 2px solid;
-  z-index: 1;
-  background: ${(props) => props.theme['background-color']};
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `

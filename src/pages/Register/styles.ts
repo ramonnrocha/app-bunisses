@@ -33,6 +33,7 @@ export const FormContainer = styled.form`
 `
 export const InputContainer = styled.input`
   width: 45rem;
+  color: ${(props) => props.theme['blue-black']};
   height: 3.8rem;
   display: flex;
   align-items: center;
@@ -41,7 +42,6 @@ export const InputContainer = styled.input`
   border: solid 1px ${(props) => props.theme['icon-details']};
   border-radius: 8px;
   background-color: transparent;
-  color: ${(props) => props.theme['icon-details']};
   font-size: 1.6rem;
   outline: none;
 

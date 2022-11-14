@@ -3,7 +3,6 @@ import { Header } from '../../components/Header'
 import { NavBar } from '../../components/NavBar'
 
 import {
-  CalendarContainer,
   CoverContainer,
   HomeContainer,
   OkrsInfoContainer,
@@ -16,8 +15,8 @@ export function Home() {
   return (
     <>
       <Header></Header>
+      <NavBar></NavBar>
       <HomeContainer>
-        <NavBar></NavBar>
         <SidebarContainer>
           <CoverContainer></CoverContainer>
 
@@ -71,8 +70,6 @@ export function Home() {
             </tbody>
           </table>
         </OkrsInfoContainer>
-
-        <CalendarContainer>Calendario</CalendarContainer>
       </HomeContainer>
     </>
   )

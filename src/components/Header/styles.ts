@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.div`
-  padding: 8rem;
+  position: relative;
+  padding: 6rem;
   width: 100%;
-  height: 9rem;
+  height: calc(2.1rem + var(--nav-height));
   display: flex;
   align-items: center;
   justify-content: space-between;

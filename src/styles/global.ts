@@ -9,6 +9,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   :root {
+    --nav-height: 10rem;
+
     font-size: 67.5%
   }
 
@@ -30,7 +32,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body, input, textarea, button {
-    font-family: "Roboto", sans-serif;
+    font-family: "DM Sans", sans-serif;
     font-weight: 400;
     font-size: 1.6rem;
     color: ${(props) => props.theme['blue-linear']};

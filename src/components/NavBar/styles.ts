@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
 export const NavBarContainer = styled.div`
+  position: absolute;
   display: inline-block;
   padding: 6rem;
   width: 12rem;
-  height: 100rem;
+  height: calc(100vh - var(--nav-height));
   display: flex;
   align-items: center;
   flex-direction: column;
