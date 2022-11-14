@@ -23,7 +23,7 @@ export function NavBar() {
       <NavLink to="/home" end title="Agenda">
         <CalendarCheck size={48} />
       </NavLink>
-      <NavLink to="/home" end title="Dashboard">
+      <NavLink to="/dashboard" end title="Dashboard">
         <ChartBar size={48} />
       </NavLink>
     </NavBarContainer>
