@@ -7,13 +7,12 @@ export const OkrContainer = styled.div`
   margin-right: 1rem;
 `
 export const DivBarContainer = styled.div`
-  display: block;
   display: flex;
   gap: 1rem;
   border-bottom: 2px solid ${(props) => props.theme['icon-details']};
   align-items: center;
   justify-content: left;
-  width: 100vw;
+  width: 100%;
   height: auto;
   padding: 2.4rem;
   font-size: 2rem;

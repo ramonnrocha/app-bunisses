@@ -5,7 +5,7 @@ export const NavBarContainer = styled.div`
   display: inline-block;
   padding: 6rem;
   width: 12rem;
-  height: calc(100vh - var(--nav-height));
+  min-height: 84.2rem;
   display: flex;
   align-items: center;
   flex-direction: column;

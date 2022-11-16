@@ -14,7 +14,7 @@ export function NavBar() {
       <NavLink to="/home" end title="Home">
         <House size={48} />
       </NavLink>
-      <NavLink to="/create-okr" end title="Criar OKR">
+      <NavLink to="/okrs" end title="Criar OKR">
         <Crosshair size={48} />
       </NavLink>
       <NavLink to="/home" end title="FeedBack">

@@ -4,6 +4,7 @@ import { CreateOkr } from './pages/CreateOkr'
 import { DashboardOkr } from './pages/DashboardOkr'
 import { Home } from './pages/Home'
 import { LoginPage } from './pages/LoginPage'
+import { Orks } from "./pages/Okr's"
 import { Register } from './pages/Register'
 
 export function Router() {
@@ -12,6 +13,7 @@ export function Router() {
       <Route path="/" element={<LoginPage />} />
       <Route path="/register" element={<Register />} />
       <Route path="/home" element={<Home />} />
+      <Route path="/okrs" element={<Orks />} />
       <Route path="/create-okr" element={<CreateOkr />} />
       <Route path="/dashboard" element={<DashboardOkr />} />
     </Routes>
