@@ -12,7 +12,7 @@ export const DashboardContainer = styled.div`
 export const DashInfo = styled.div`
   width: 100%;
   height: min(70rem);
-  border: 1px solid ${(props) => props.theme['blue-black']};
+
   border-radius: 8px;
   margin: 2rem;
   display: flex;
