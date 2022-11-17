@@ -4,6 +4,7 @@ import {
   DashboardContainer,
   DashInfo,
   DivInfoStats,
+  FilterOkrContainer,
   StatsContainer,
 } from './styles'
 
@@ -34,6 +35,7 @@ export function DashboardOkr() {
               <strong>2</strong>
             </DivInfoStats>
           </StatsContainer>
+          <FilterOkrContainer></FilterOkrContainer>
         </DashInfo>
       </DashboardContainer>
     </>

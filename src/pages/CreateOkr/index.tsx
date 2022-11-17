@@ -1,4 +1,4 @@
-import { CaretUp, ChartLineUp, Target, Upload } from 'phosphor-react'
+import { CaretDown, ChartLineUp, Target, Upload } from 'phosphor-react'
 
 import { Header } from '../../components/Header'
 import { NavBar } from '../../components/NavBar'
@@ -42,7 +42,7 @@ export function CreateOkr() {
 
   const object = watch('object')
   const isSubmitDisabled = !object
-
+  const isEmpty = true
   return (
     <>
       <Header></Header>
@@ -55,12 +55,20 @@ export function CreateOkr() {
 
         <FormContainer onSubmit={handleSubmit(handleCreateNewCycle)} action="">
           <InputContainer
+            list="task-suggestions"
             type="text"
             id="obejct"
             placeholder="Objetivo*"
             role="listbox"
             {...register('object')}
           />
+
+          <datalist id="task-suggestions">
+            <option value="Projeto 1"></option>
+            <option value="Projeto 2"></option>
+            <option value="Projeto 3"></option>
+            <option value="Projeto 4"></option>
+          </datalist>
           <InputContainer
             type="text"
             id="description"
@@ -102,7 +110,7 @@ export function CreateOkr() {
             <h4>Privacidade</h4>
             <div>
               <div>
-                <button></button>
+                <button className="check"></button>
               </div>
               Publico
               <div>
@@ -122,9 +130,23 @@ export function CreateOkr() {
           <ChartLineUp size={32} />
           Plano de Ação
           <button>
-            <CaretUp size={24} />
+            <CaretDown size={24} />
           </button>
         </DivBarContainer>
+        <div className="noTasks">
+          {isEmpty && (
+            <DivContainerForm>
+              <InputContainer
+                list="task-suggestions"
+                type="text"
+                id="obejct"
+                placeholder="Objetivo*"
+                role="listbox"
+                {...register('object')}
+              />
+            </DivContainerForm>
+          )}
+        </div>
       </OkrContainer>
     </>
   )

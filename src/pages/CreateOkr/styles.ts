@@ -102,6 +102,10 @@ export const PrivateContainer = styled.div`
     border-radius: 999px;
     cursor: pointer;
   }
+
+  .check {
+    background: ${(props) => props.theme['blue-linear']};
+  }
 `
 
 export const ButtonContainer = styled.button`

@@ -1,6 +1,5 @@
 import {
   ButtonContainer,
-  CheckBox,
   CheckContainer,
   FooterContainer,
   FormContainer,
@@ -9,10 +8,23 @@ import {
 } from './styles'
 
 import logoLogin from '../../assets/logo-loginpage.svg'
-import { SignIn } from 'phosphor-react'
+import { Check, SignIn } from 'phosphor-react'
 import { NavLink } from 'react-router-dom'
+import { useState } from 'react'
 
-export function LoginPage() {
+interface PropsLoginPage {
+  check: boolean
+}
+
+export function LoginPage({ check }: PropsLoginPage) {
+  const [checks, setChecks] = useState(false)
+
+  function handleCheckBox(check: boolean, event: any) {
+    setChecks(true)
+    console.log(checks)
+    event.preventDefault()
+  }
+
   return (
     <LoginPageContainer>
       <img src={logoLogin} alt="" />
@@ -20,9 +32,15 @@ export function LoginPage() {
         <label htmlFor="">Endereço de e-mail</label>
         <InputContainer type="text" id="email" placeholder="Digite seu email" />
         <label htmlFor="">Sua senha</label>
-        <InputContainer type="password" placeholder="Digite sua Senha" />
+        <InputContainer
+          type="current-password"
+          placeholder="Digite sua Senha"
+        />
         <CheckContainer>
-          <CheckBox />
+          <button onClick={() => handleCheckBox(check, event)}>
+            {checks ? <Check /> : ''}
+          </button>
+
           <strong>Lembra de mim por 30 dias</strong>
         </CheckContainer>
       </FormContainer>
@@ -33,9 +51,11 @@ export function LoginPage() {
         </ButtonContainer>
       </NavLink>
       <FooterContainer>
-        <a href="">Esqueceu sua senha ? </a>
+        <NavLink to={''}>
+          <p>Esqueceu sua senha ?</p>
+        </NavLink>
         <NavLink to="/register" end title="Register">
-          <a href="">Não possui conta ? Crie uma agora!</a>
+          <p>Não possui conta ? Crie uma agora!</p>
         </NavLink>
       </FooterContainer>
     </LoginPageContainer>

@@ -48,14 +48,36 @@ export const CheckContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: left;
-  gap: 1.6rem;
+  gap: 1rem;
   font-size: 1.6rem;
+
+  button {
+    background-color: transparent;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid;
+    border-radius: 999px;
+    cursor: pointer;
+    overflow: hidden;
+    align-items: center;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+    background-color: ${(props) => props.theme['blue-linear']};
+
+    border-radius: 999px;
+    color: white;
+    overflow: hidden;
+  }
 `
 export const CheckBox = styled.div`
-  width: 2.4rem;
-  height: 2.4rem;
-  border: 1px solid;
-  border-radius: 5px;
+  background-color: ${(props) => props.theme['blue-linear']};
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  margin: 0;
 `
 export const ButtonContainer = styled.button`
   margin-left: -1.6rem;
