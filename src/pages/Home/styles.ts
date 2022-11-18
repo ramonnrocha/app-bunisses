@@ -7,7 +7,7 @@ export const HomeContainer = styled.div`
 `
 export const SidebarContainer = styled.div`
   background: ${(props) => props.theme['background-color']};
-  border: 2px solid ${(props) => props.theme['blue-linear']};
+  border: 1px solid ${(props) => props.theme['blue-linear']};
   font-size: 1.6rem;
   border-radius: 8px;
   overflow: hidden;
@@ -58,17 +58,16 @@ export const SidebarContainer = styled.div`
 `
 export const CoverContainer = styled.div`
   width: 100%;
-  height: 9rem;
+  height: 11rem;
   background-color: ${(props) => props.theme['blue-linear']};
   object-fit: cover;
-  overflow: hidden;
 `
 export const ProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
 
   align-items: center;
-  margin-top: -2rem;
+  margin-top: -4rem;
   margin-bottom: 1rem;
 
   strong {

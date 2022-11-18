@@ -2,47 +2,49 @@ import { CaretDown, ChartLineUp, Target, Upload } from 'phosphor-react'
 
 import { Header } from '../../components/Header'
 import { NavBar } from '../../components/NavBar'
-import {
-  ButtonContainer,
-  DivBarContainer,
-  DivContainerForm,
-  FormContainer,
-  InputContainer,
-  OkrContainer,
-  PrivateContainer,
-} from './styles'
+import { ButtonContainer, DivBarContainer, OkrContainer } from './styles'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import * as zod from 'zod'
-import { useForm } from 'react-hook-form'
+import { FormProvider, useForm } from 'react-hook-form'
+import { useContext } from 'react'
+import { ObjectiveForm } from './ObejectiveForm'
+import { CyclesContext } from '../../contexts/CyclesContext'
+import { PlanForm } from './PlanForm'
+import { NavLink } from 'react-router-dom'
 
-const newObjectFormValidationSchema = zod.object({
-  object: zod.string().min(1, 'Informe uma tarefa'),
+const newObjectiveFormValidationSchema = zod.object({
+  objective: zod.string().min(1, 'Informe uma tarefa'),
   description: zod.string().min(1, 'Descreva o objetivo'),
   author: zod.string().min(1),
   function: zod.string().min(1),
-  dadObject: zod.string(),
+  dadObjective: zod.string(),
   sector: zod.string(),
+  what: zod.string(),
+  where: zod.string(),
+  why: zod.string(),
+  when: zod.string(),
+  who: zod.string(),
+  how: zod.string(),
+  howMuch: zod.string(),
 })
 
-type NewObjectFormData = zod.infer<typeof newObjectFormValidationSchema>
+type NewObjectiveFormData = zod.infer<typeof newObjectiveFormValidationSchema>
 
 export function CreateOkr() {
-  const newCycleForm = useForm<NewObjectFormData>({
-    resolver: zodResolver(newObjectFormValidationSchema),
+  const { objectives, CreateNewObjective } = useContext(CyclesContext)
+  const newObjectiveForm = useForm<NewObjectiveFormData>({
+    resolver: zodResolver(newObjectiveFormValidationSchema),
   })
 
-  const { register, handleSubmit, watch, reset } = newCycleForm
+  const { handleSubmit, reset } = newObjectiveForm
 
-  function handleCreateNewCycle(data: any) {
-    console.log(data)
+  function handleCreateNewObjective(data: NewObjectiveFormData) {
+    CreateNewObjective(data)
     reset()
   }
 
-  const object = watch('object')
-  const isSubmitDisabled = !object
-  const isEmpty = true
   return (
     <>
       <Header></Header>
@@ -52,101 +54,24 @@ export function CreateOkr() {
           <Target size={32} />
           Novo Objetivo
         </DivBarContainer>
+        <form onSubmit={handleSubmit(handleCreateNewObjective)} action="">
+          <FormProvider {...newObjectiveForm}>
+            <ObjectiveForm />
 
-        <FormContainer onSubmit={handleSubmit(handleCreateNewCycle)} action="">
-          <InputContainer
-            list="task-suggestions"
-            type="text"
-            id="obejct"
-            placeholder="Objetivo*"
-            role="listbox"
-            {...register('object')}
-          />
-
-          <datalist id="task-suggestions">
-            <option value="Projeto 1"></option>
-            <option value="Projeto 2"></option>
-            <option value="Projeto 3"></option>
-            <option value="Projeto 4"></option>
-          </datalist>
-          <InputContainer
-            type="text"
-            id="description"
-            placeholder="Descrição*"
-            {...register('description')}
-          />
-          <DivContainerForm>
-            <div>
-              <InputContainer
-                type="text"
-                id="name"
-                placeholder="Responsável"
-                {...register('author')}
-              />
-              <InputContainer
-                type="text"
-                id="function"
-                placeholder="Contribuintes"
-                {...register('function')}
-              />
-            </div>
-            <div>
-              <InputContainer
-                type="text"
-                id="object"
-                placeholder="Objetivo pai"
-                {...register('dadObject')}
-              />
-              <InputContainer
-                type="text"
-                id="text"
-                placeholder="Diretriz*"
-                {...register('sector')}
-              />
-            </div>
-          </DivContainerForm>
-
-          <PrivateContainer>
-            <h4>Privacidade</h4>
-            <div>
-              <div>
-                <button className="check"></button>
-              </div>
-              Publico
-              <div>
-                <button></button>
-              </div>
-              Privado
-            </div>
-          </PrivateContainer>
-
-          <ButtonContainer disabled={isSubmitDisabled} type="submit">
-            <Upload />
-            Salvar
-          </ButtonContainer>
-        </FormContainer>
-
-        <DivBarContainer>
-          <ChartLineUp size={32} />
-          Plano de Ação
-          <button>
-            <CaretDown size={24} />
-          </button>
-        </DivBarContainer>
-        <div className="noTasks">
-          {isEmpty && (
-            <DivContainerForm>
-              <InputContainer
-                list="task-suggestions"
-                type="text"
-                id="obejct"
-                placeholder="Objetivo*"
-                role="listbox"
-                {...register('object')}
-              />
-            </DivContainerForm>
-          )}
-        </div>
+            <DivBarContainer>
+              <ChartLineUp size={32} />
+              Plano de Ação
+              <button>
+                <CaretDown size={24} />
+              </button>
+            </DivBarContainer>
+            <PlanForm></PlanForm>
+            <ButtonContainer type="submit">
+              <Upload />
+              Salvar
+            </ButtonContainer>
+          </FormProvider>
+        </form>
       </OkrContainer>
     </>
   )

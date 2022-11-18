@@ -5,6 +5,10 @@ export const OkrContainer = styled.div`
   flex-direction: column;
   margin-left: 12.5rem;
   margin-right: 1rem;
+
+  form {
+    align-items: left;
+  }
 `
 export const DivBarContainer = styled.div`
   display: flex;
@@ -109,6 +113,7 @@ export const PrivateContainer = styled.div`
 `
 
 export const ButtonContainer = styled.button`
+  margin-left: 4rem;
   width: 12rem;
   height: 3.8rem;
   background: ${(props) => props.theme['blue-linear']};
@@ -120,8 +125,21 @@ export const ButtonContainer = styled.button`
   justify-content: center;
   gap: 0.8rem;
   cursor: pointer;
+  margin-bottom: 4rem;
 
   :hover {
     background: ${(props) => props.theme['blue-hover']};
   }
+
+  a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+  }
+`
+
+export const ActionPlanContainer = styled.div`
+  display: flex;
 `

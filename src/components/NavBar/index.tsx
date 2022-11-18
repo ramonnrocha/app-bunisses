@@ -17,10 +17,10 @@ export function NavBar() {
       <NavLink to="/okrs" end title="Criar OKR">
         <Crosshair size={48} />
       </NavLink>
-      <NavLink to="/home" end title="FeedBack">
+      <NavLink to="/feedback" end title="FeedBack">
         <ThumbsUp size={48} />
       </NavLink>
-      <NavLink to="/home" end title="Agenda">
+      <NavLink to="/tasks" end title="Tarefas">
         <CalendarCheck size={48} />
       </NavLink>
       <NavLink to="/dashboard" end title="Dashboard">
