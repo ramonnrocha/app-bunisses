@@ -12,7 +12,6 @@ import { useContext } from 'react'
 import { ObjectiveForm } from './ObejectiveForm'
 import { CyclesContext } from '../../contexts/CyclesContext'
 import { PlanForm } from './PlanForm'
-import { NavLink } from 'react-router-dom'
 
 const newObjectiveFormValidationSchema = zod.object({
   objective: zod.string().min(1, 'Informe uma tarefa'),
@@ -33,7 +32,7 @@ const newObjectiveFormValidationSchema = zod.object({
 type NewObjectiveFormData = zod.infer<typeof newObjectiveFormValidationSchema>
 
 export function CreateOkr() {
-  const { objectives, CreateNewObjective } = useContext(CyclesContext)
+  const { CreateNewObjective } = useContext(CyclesContext)
   const newObjectiveForm = useForm<NewObjectiveFormData>({
     resolver: zodResolver(newObjectiveFormValidationSchema),
   })

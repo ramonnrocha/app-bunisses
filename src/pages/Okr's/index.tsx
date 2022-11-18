@@ -1,13 +1,15 @@
 import { Cardholder, ClipboardText, Target } from 'phosphor-react'
+import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Header } from '../../components/Header'
 import { NavBar } from '../../components/NavBar'
+import { Okr } from '../../components/Okr'
+import { CyclesContext } from '../../contexts/CyclesContext'
 
-import { DivBarContainerOkr, OrksContainer } from './styles'
-
-const tasks = []
+import { DivBarContainerOkr, MyOkrsContainer, OrksContainer } from './styles'
 
 export function Orks() {
+  const { objectives } = useContext(CyclesContext)
   return (
     <>
       <Header></Header>
@@ -26,8 +28,15 @@ export function Orks() {
             </NavLink>
           </div>
         </DivBarContainerOkr>
+
+        <MyOkrsContainer>
+          {objectives.map((objective) => (
+            <Okr key={objective.id} />
+          ))}
+        </MyOkrsContainer>
+
         <div className="noTasks">
-          {tasks.length <= 0 && (
+          {objectives.length <= 0 && (
             <div>
               <ClipboardText size={80} />
               <div>

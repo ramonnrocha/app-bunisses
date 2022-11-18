@@ -60,3 +60,10 @@ export const DivBarContainerOkr = styled.div`
     }
   }
 `
+export const MyOkrsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4rem;
+`
