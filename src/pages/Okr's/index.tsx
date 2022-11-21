@@ -1,4 +1,4 @@
-import { Cardholder, ClipboardText, Target, Wrench } from 'phosphor-react'
+import { ClipboardText, PlusCircle, Target, Wrench } from 'phosphor-react'
 import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Avatar } from '../../components/Avatar'
@@ -31,7 +31,7 @@ export function Orks() {
 
           <div>
             <NavLink to="/create-okr" end title="Create">
-              <Cardholder />
+              <PlusCircle size={20} />
               Criar OKR
             </NavLink>
           </div>
@@ -76,8 +76,8 @@ export function Orks() {
             <div>
               <ClipboardText size={80} />
               <div>
-                <h4>Você ainda não tem tarefas cadastradas</h4>
-                <p>Crie tarefas e organize seus itens a fazer</p>
+                <h4>Você ainda não criou nenhum OKR</h4>
+                <p>Crie agora e organize seus itens a fazer</p>
               </div>
             </div>
           )}

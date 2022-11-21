@@ -1,50 +1,130 @@
+import { Calendar, ClipboardText, PlusCircle, Target } from 'phosphor-react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 import { Header } from '../../components/Header'
 import { NavBar } from '../../components/NavBar'
-import { HomeContainer, OkrsInfoContainer, Status } from '../Home/styles'
+import { DivBarContainerOkr } from "../Okr's/styles"
+import { FormTasksContainer, HomeTaskContainer, TaskContainer } from './styles'
+import { Task } from './Task'
 
-export function Tasks() {
+export interface ITask {
+  id: string
+  title: string
+  isCompleted: boolean
+}
+
+interface Props {
+  tasks: ITask[]
+  onAddTask: (taskTitle: string) => void
+  onDeleteTask: (taskId: string) => void
+  onCompletedTask: (taskId: string) => void
+}
+
+export function Tasks({ onAddTask, onDeleteTask, onCompletedTask }: Props) {
+  const [title, setTiTle] = useState('')
+  const [tasks, setTasks] = useState<ITask[]>([])
+
+  function addTask(taskTitle: string) {
+    setTasks([
+      ...tasks,
+      {
+        id: crypto.randomUUID(),
+        title: taskTitle,
+        isCompleted: false,
+      },
+    ])
+  }
+
+  function deleteTaskById(taskId: string) {
+    const newTasks = tasks.filter((task) => task.id !== taskId)
+
+    setTasks(newTasks)
+  }
+
+  function toggleTaskCompletedById(taskId: string) {
+    const newTasks = tasks.map((task) => {
+      if (task.id === taskId) {
+        return {
+          ...task,
+          isCompleted: !task.isCompleted,
+        }
+      }
+      return task
+    })
+    setTasks(newTasks)
+  }
+
+  function handleSubimit(event: FormEvent) {
+    event?.preventDefault()
+
+    addTask(title)
+    setTiTle('')
+  }
+
+  function onChangeTitle(event: ChangeEvent<HTMLTextAreaElement>) {
+    setTiTle(event.target.value)
+  }
+
+  const taskQuantity = tasks.length
+  const completedTasks = tasks.filter((task) => task.isCompleted).length
+
   return (
     <>
       <Header></Header>
       <NavBar></NavBar>
-      <HomeContainer>
-        <OkrsInfoContainer>
-          <table>
-            <thead>
-              <th>Tarefa</th>
-              <th>Duração</th>
-              <th>Inicio</th>
-              <th>Status</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>OKR 1</td>
-                <td>1 mes</td>
-                <td>agosto</td>
-                <td>
-                  <Status statusColor="green">Concluido</Status>
-                </td>
-              </tr>
-              <tr>
-                <td>OKR 2</td>
-                <td>Uma semana</td>
-                <td>agosto</td>
-                <td>
-                  <Status statusColor="yellow">Em Andamento</Status>
-                </td>
-              </tr>
-              <tr>
-                <td>OKR 3</td>
-                <td>há 1 minutos</td>
-                <td>agosto</td>
-                <td>
-                  <Status statusColor="red">Atrasado</Status>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </OkrsInfoContainer>
-      </HomeContainer>
+      <TaskContainer>
+        <DivBarContainerOkr>
+          <div>
+            <Calendar size={32} />
+            Minhas Tarefas
+          </div>
+        </DivBarContainerOkr>
+        <FormTasksContainer>
+          <form onSubmit={handleSubimit}>
+            <textarea
+              onChange={onChangeTitle}
+              value={title}
+              required
+              placeholder="Adicione uma nova tarefa"
+            />
+            <button className="button" type="submit">
+              Criar
+              <PlusCircle size={24} />
+            </button>
+          </form>
+        </FormTasksContainer>
+
+        <HomeTaskContainer>
+          <header>
+            <div className="created">
+              Tarefas Criadas <span>{taskQuantity}</span>
+            </div>
+            <div className="completed">
+              Concluidas <span>{completedTasks}</span> de{' '}
+              <span>{tasks.length}</span>
+            </div>
+          </header>
+          <div className="hometasks">
+            {tasks.map((task) => (
+              <Task
+                key={task.id}
+                task={task}
+                onDelete={deleteTaskById}
+                onCompletedTask={toggleTaskCompletedById}
+              />
+            ))}
+
+            {tasks.length <= 0 && (
+              <div className="noTasks">
+                <ClipboardText size={80} />
+                <div>
+                  <h4>Você ainda não tem tarefas cadastradas</h4>
+                  <p>Crie tarefas e organize seus itens a fazer</p>
+                </div>
+              </div>
+            )}
+          </div>
+        </HomeTaskContainer>
+      </TaskContainer>
     </>
   )
 }
