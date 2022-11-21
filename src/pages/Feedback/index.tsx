@@ -1,11 +1,33 @@
+import { Comment } from './Comment'
+
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { Avatar } from '../../components/Avatar'
+import {
+  FeedbackContainer,
+  PostAndCommentContainer,
+  PostContainer,
+  PostFeedbackContainer,
+} from './styles'
 import { Header } from '../../components/Header'
 import { NavBar } from '../../components/NavBar'
-import { Profile } from '../../components/Profile'
-import { CommentContainer, FeedbackContainer, PostContainer } from './styles'
 
-export function Feedback() {
+interface Author {
+  name: string
+  role: string
+  avatarUrl: string
+}
+
+interface Content {
+  type: string
+  content: string
+}
+
+interface PostProps {
+  author: Author
+  content: Content[]
+}
+
+export function Feedback({ author, content }: PostProps) {
   const [comments, setComments] = useState([''])
 
   const [newCommentText, setNewCommentText] = useState('')
@@ -15,10 +37,6 @@ export function Feedback() {
 
     setComments([...comments, newCommentText])
     setNewCommentText('')
-  }
-
-  function handleNewCommnetChange(event: ChangeEvent<HTMLTextAreaElement>) {
-    setNewCommentText(event.target.value)
   }
 
   function onDeleteComment(commentToDelete: string) {
@@ -40,23 +58,27 @@ export function Feedback() {
       <Header></Header>
       <NavBar></NavBar>
       <FeedbackContainer>
-        <Profile></Profile>
-        <PostContainer>
-          <header>
-            <div>
-              <Avatar />
+        <PostAndCommentContainer>
+          <PostContainer>
+            <header>
               <div className="author">
-                <strong>Ramonn Rocha</strong>
-                <span>Developer Junior</span>
+                <Avatar />
+                <div className="authorInfo">
+                  <strong>Ramonn Rocha</strong>
+                  <span>Dev</span>
+                </div>
               </div>
+            </header>
+            <div className="content">
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt
+                nostrum dolores recusandae libero! Placeat explicabo quo ab
+                quisquam architecto magni nulla fugit quam enim. Veritatis, vel.
+                Illum veniam minima consequatur.
+              </p>
             </div>
 
-            <time title="11 de maior as 8:13h" dateTime="2022-05-11 08:00:00">
-              Publicado a 1 hr
-            </time>
-          </header>
-          <CommentContainer>
-            <footer>
+            <PostFeedbackContainer>
               <h4>Deixe seu feedback</h4>
               <form onSubmit={handleCreateNewComment} action="">
                 <textarea
@@ -66,14 +88,28 @@ export function Feedback() {
                   required
                   placeholder="Deixe um comentário"
                 />
-                <button type="submit" disabled={isNewCommentEmpty}>
+                <button
+                  className="button"
+                  type="submit"
+                  disabled={isNewCommentEmpty}
+                >
                   Publicar
                 </button>
               </form>
-            </footer>
-          </CommentContainer>
-          <div></div>
-        </PostContainer>
+            </PostFeedbackContainer>
+          </PostContainer>
+          <div>
+            {comments.map((comment) => {
+              return (
+                <Comment
+                  key={comment}
+                  content={comment}
+                  onDeleteComment={onDeleteComment}
+                />
+              )
+            })}
+          </div>
+        </PostAndCommentContainer>
       </FeedbackContainer>
     </>
   )

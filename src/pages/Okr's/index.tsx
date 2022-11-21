@@ -1,12 +1,20 @@
-import { Cardholder, ClipboardText, Target } from 'phosphor-react'
+import { Cardholder, ClipboardText, Target, Wrench } from 'phosphor-react'
 import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
+import { Avatar } from '../../components/Avatar'
 import { Header } from '../../components/Header'
 import { NavBar } from '../../components/NavBar'
-import { Okr } from '../../components/Okr'
-import { CyclesContext } from '../../contexts/CyclesContext'
 
-import { DivBarContainerOkr, MyOkrsContainer, OrksContainer } from './styles'
+import {
+  EditorOkrContainer,
+  OkrDetailsContainer,
+  OkrSpreedContainer,
+  ProgressDetailsContainer,
+  DivBarContainerOkr,
+  MyOkrsContainer,
+  OrksContainer,
+} from './styles'
+import { CyclesContext } from '../../contexts/CyclesContext'
 
 export function Orks() {
   const { objectives } = useContext(CyclesContext)
@@ -31,7 +39,35 @@ export function Orks() {
 
         <MyOkrsContainer>
           {objectives.map((objective) => (
-            <Okr key={objective.id} />
+            <OkrSpreedContainer key={objective.id}>
+              <Avatar />
+              <OkrDetailsContainer>
+                <strong>{objective.objective}</strong>
+                <div className="details">
+                  <p>
+                    Responsável: <span>{objective.author}</span>
+                  </p>
+                  <p>
+                    Periodo: <span>1 mês</span>
+                  </p>
+                </div>
+              </OkrDetailsContainer>
+
+              <ProgressDetailsContainer>
+                <strong>Progresso</strong>
+                <div className="barProgress">
+                  <div className="cover">50%</div>
+                </div>
+              </ProgressDetailsContainer>
+              <EditorOkrContainer>
+                <button title="Ações">
+                  <Wrench size={20} />
+                </button>
+                <button title="Adicionar Resultado">
+                  <p> + Resultado Chave</p>
+                </button>
+              </EditorOkrContainer>
+            </OkrSpreedContainer>
           ))}
         </MyOkrsContainer>
 
