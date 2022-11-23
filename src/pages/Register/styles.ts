@@ -18,6 +18,7 @@ export const RegisterContaier = styled.div`
 
   @media (max-width: 700px) {
     width: 100%;
+    max-width: 555px;
     align-items: center;
   } ;
 `
@@ -37,6 +38,7 @@ export const FormContainer = styled.form`
   }
 
   @media (max-width: 700px) {
+    max-width: 505px;
     width: 10rem;
     align-items: center;
   } ;
@@ -58,6 +60,12 @@ export const InputContainer = styled.input`
   ::placeholder {
     color: ${(props) => props.theme['icon-details']};
   }
+
+  @media (max-width: 700px) {
+    max-width: 450px;
+
+    align-items: center;
+  } ;
 `
 
 export const ButtonContainer = styled.button`
@@ -76,4 +84,10 @@ export const ButtonContainer = styled.button`
   :hover {
     background: ${(props) => props.theme['blue-hover']};
   }
+
+  @media (max-width: 700px) {
+    max-width: 450px;
+
+    align-items: center;
+  } ;
 `

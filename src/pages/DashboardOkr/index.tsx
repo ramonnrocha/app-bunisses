@@ -2,7 +2,6 @@ import { Header } from '../../components/Header'
 import { NavBar } from '../../components/NavBar'
 import { ContentContainer } from '../../styles/global'
 import {
-  DashboardContainer,
   DashInfo,
   DivInfoStats,
   FilterOkrContainer,

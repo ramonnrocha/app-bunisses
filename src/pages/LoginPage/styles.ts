@@ -8,6 +8,10 @@ export const LoginPageContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 2.4rem;
+
+  @media (max-width: 700px) {
+    width: 555px;
+  } ;
 `
 
 export const FormContainer = styled.form`
@@ -24,8 +28,9 @@ export const FormContainer = styled.form`
     text-decoration: none;
   }
   @media (max-width: 700px) {
-    width: 100%;
+    width: 505px;
     align-items: center;
+    justify-content: center;
   } ;
 `
 export const InputContainer = styled.input`
@@ -45,6 +50,10 @@ export const InputContainer = styled.input`
   ::placeholder {
     color: ${(props) => props.theme['icon-details']};
   }
+
+  @media (max-width: 700px) {
+    width: 400px;
+  } ;
 `
 
 export const CheckContainer = styled.div`
@@ -97,6 +106,10 @@ export const ButtonContainer = styled.button`
   :hover {
     background: ${(props) => props.theme['blue-hover']};
   }
+
+  @media (max-width: 700px) {
+    width: 400px;
+  } ;
 `
 export const FooterContainer = styled.div`
   display: flex;
