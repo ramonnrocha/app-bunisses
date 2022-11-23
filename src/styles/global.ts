@@ -24,6 +24,8 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${(props) => props.theme['background-color']};
     color: ${(props) => props.theme['blue-linear']};
     -webkit-font-smoothing: antialiased;
+    width: 100%;
+    height: 100%;
   }
 
   a{
@@ -45,9 +47,9 @@ export const ContentContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  left: 12rem;
-  width: calc(100% - 12rem);
-  margin-right: 4rem;
+  left: 10rem;
+  width: calc(100% - 10rem);
+  margin-right: 0rem;
 
   .noTasks div {
     display: flex;

@@ -9,6 +9,11 @@ export const LoginPageContainer = styled.div`
   flex-direction: column;
   gap: 2.4rem;
 
+  img {
+    width: 300px;
+    margin-bottom: 2rem;
+  }
+
   @media (max-width: 700px) {
     width: 555px;
   } ;

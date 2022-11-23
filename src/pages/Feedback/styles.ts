@@ -11,10 +11,12 @@ export const PostAndCommentContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 4rem;
-  width: auto;
+  width: 100%;
+  max-width: 144rem;
   border: 2px solid ${(props) => props.theme['icon-details']};
   border-radius: 8px;
   box-shadow: 1px 3px 3px ${(props) => props.theme['icon-details']};
+  overflow: hidden;
 `
 
 export const PostContainer = styled.div`

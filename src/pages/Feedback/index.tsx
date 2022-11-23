@@ -3,13 +3,13 @@ import { Comment } from './Comment'
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { Avatar } from '../../components/Avatar'
 import {
-  FeedbackContainer,
   PostAndCommentContainer,
   PostContainer,
   PostFeedbackContainer,
 } from './styles'
 import { Header } from '../../components/Header'
 import { NavBar } from '../../components/NavBar'
+import { ContentContainer } from '../../styles/global'
 
 interface Author {
   name: string
@@ -57,7 +57,7 @@ export function Feedback({ author, content }: PostProps) {
     <>
       <Header></Header>
       <NavBar></NavBar>
-      <FeedbackContainer>
+      <ContentContainer>
         <PostAndCommentContainer>
           <PostContainer>
             <header>
@@ -70,12 +70,7 @@ export function Feedback({ author, content }: PostProps) {
               </div>
             </header>
             <div className="content">
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt
-                nostrum dolores recusandae libero! Placeat explicabo quo ab
-                quisquam architecto magni nulla fugit quam enim. Veritatis, vel.
-                Illum veniam minima consequatur.
-              </p>
+              <p>Olá bem vindo ao meu perfil</p>
             </div>
 
             <PostFeedbackContainer>
@@ -110,7 +105,7 @@ export function Feedback({ author, content }: PostProps) {
             })}
           </div>
         </PostAndCommentContainer>
-      </FeedbackContainer>
+      </ContentContainer>
     </>
   )
 }

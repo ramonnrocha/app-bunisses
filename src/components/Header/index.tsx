@@ -6,8 +6,8 @@ import { Cardholder, Users } from 'phosphor-react'
 
 export function Header() {
   return (
-    <>
-      <HeaderContainer>
+    <HeaderContainer>
+      <div id="navigation" className="scroll">
         <img src={logoLogin} alt="" />
         <nav>
           <NavLink to="/" end title="Timer">
@@ -19,7 +19,7 @@ export function Header() {
             Convide seu time
           </NavLink>
         </nav>
-      </HeaderContainer>
-    </>
+      </div>
+    </HeaderContainer>
   )
 }

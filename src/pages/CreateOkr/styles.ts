@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const OkrContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 12.5rem;
+  margin-left: 10rem;
   margin-right: 1rem;
 
   form {

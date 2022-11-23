@@ -19,7 +19,7 @@ export const DivBarContainerOkr = styled.div`
   display: flex;
   gap: 1rem;
 
-  border-bottom: 2px solid ${(props) => props.theme['icon-details']};
+  border-bottom: 1px solid ${(props) => props.theme['icon-details']};
   align-items: center;
   justify-content: space-between;
   width: 100%;
