@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   *{
@@ -36,5 +36,24 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     font-size: 1.6rem;
     color: ${(props) => props.theme['blue-linear']};
+  }
+`
+
+export const ContentContainer = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  left: 12rem;
+  width: calc(100% - 12rem);
+  margin-right: 4rem;
+
+  .noTasks div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
   }
 `

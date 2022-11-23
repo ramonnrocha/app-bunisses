@@ -12,9 +12,9 @@ import {
   ProgressDetailsContainer,
   DivBarContainerOkr,
   MyOkrsContainer,
-  OrksContainer,
 } from './styles'
 import { CyclesContext } from '../../contexts/CyclesContext'
+import { ContentContainer } from '../../styles/global'
 
 export function Orks() {
   const { objectives } = useContext(CyclesContext)
@@ -22,7 +22,7 @@ export function Orks() {
     <>
       <Header></Header>
       <NavBar></NavBar>
-      <OrksContainer>
+      <ContentContainer>
         <DivBarContainerOkr>
           <div>
             <Target size={32} />
@@ -82,7 +82,7 @@ export function Orks() {
             </div>
           )}
         </div>
-      </OrksContainer>
+      </ContentContainer>
     </>
   )
 }

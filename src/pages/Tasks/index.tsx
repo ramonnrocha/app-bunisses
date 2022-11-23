@@ -1,9 +1,10 @@
-import { Calendar, ClipboardText, PlusCircle, Target } from 'phosphor-react'
+import { Calendar, ClipboardText, PlusCircle } from 'phosphor-react'
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { Header } from '../../components/Header'
 import { NavBar } from '../../components/NavBar'
+import { ContentContainer } from '../../styles/global'
 import { DivBarContainerOkr } from "../Okr's/styles"
-import { FormTasksContainer, HomeTaskContainer, TaskContainer } from './styles'
+import { FormTasksContainer, HomeTaskContainer } from './styles'
 import { Task } from './Task'
 
 export interface ITask {
@@ -71,7 +72,7 @@ export function Tasks({ onAddTask, onDeleteTask, onCompletedTask }: Props) {
     <>
       <Header></Header>
       <NavBar></NavBar>
-      <TaskContainer>
+      <ContentContainer>
         <DivBarContainerOkr>
           <div>
             <Calendar size={32} />
@@ -124,7 +125,7 @@ export function Tasks({ onAddTask, onDeleteTask, onCompletedTask }: Props) {
             )}
           </div>
         </HomeTaskContainer>
-      </TaskContainer>
+      </ContentContainer>
     </>
   )
 }

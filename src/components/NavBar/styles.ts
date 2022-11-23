@@ -5,8 +5,8 @@ export const NavBarContainer = styled.div`
   display: inline-block;
   padding: 6rem;
   width: 12rem;
-
-  height: calc(100vw - var(--nav-height));
+  margin-top: var(--nav-heigth);
+  height: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -16,4 +16,9 @@ export const NavBarContainer = styled.div`
   a {
     color: ${(props) => props.theme['background-color']};
   }
+
+  @media (max-width: 700px) {
+    visibility: hidden;
+    opacity: 1;
+  } ;
 `

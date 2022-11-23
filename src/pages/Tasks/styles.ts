@@ -1,12 +1,14 @@
 import styled from 'styled-components'
 
 export const TaskContainer = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-  margin-left: 12.5rem;
-  margin-right: 1rem;
-  width: 100%;
+  left: 12rem;
+  width: calc(100% - 12rem);
+  margin-right: 4rem;
 `
 export const FormTasksContainer = styled.div`
   width: max(120.6rem);

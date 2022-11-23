@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const RegisterContaier = styled.div`
-  width: auto;
+  width: 100%;
   height: 80rem;
   display: flex;
   align-items: center;
@@ -15,6 +15,12 @@ export const RegisterContaier = styled.div`
     font-weight: 700;
     margin-bottom: 2.4rem;
   }
+
+  @media (max-width: 700px) {
+    width: 100%;
+    height: auto;
+    margin-top: 10rem;
+  } ;
 `
 
 export const FormContainer = styled.form`

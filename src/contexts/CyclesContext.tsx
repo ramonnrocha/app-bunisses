@@ -40,6 +40,7 @@ interface Objetive {
 
 interface OkrContextType {
   objectives: Objetive[]
+  plan: ActionPlan[]
   CreateNewObjective: (data: CreateObjectiveData) => void
 }
 
@@ -79,7 +80,6 @@ export function OkrContextProvider({ children }: OkrContextProviderProps) {
 
     setObjectives((state) => [...state, newObjective])
     console.log(newObjective)
-    // reset()
   }
 
   return (
@@ -87,6 +87,7 @@ export function OkrContextProvider({ children }: OkrContextProviderProps) {
       value={{
         objectives,
         CreateNewObjective,
+        plan,
       }}
     >
       {children}

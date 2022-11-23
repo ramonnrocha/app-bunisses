@@ -1,5 +1,3 @@
-import { CaretDown, ChartLineUp, Target, Upload } from 'phosphor-react'
-
 import { Header } from '../../components/Header'
 import { NavBar } from '../../components/NavBar'
 import { ButtonContainer, DivBarContainer, OkrContainer } from './styles'
@@ -11,7 +9,9 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { useContext } from 'react'
 import { ObjectiveForm } from './ObejectiveForm'
 import { CyclesContext } from '../../contexts/CyclesContext'
-import { PlanForm } from './PlanForm'
+
+import { redirect } from 'react-router-dom'
+import { Target, Upload } from 'phosphor-react'
 
 const newObjectiveFormValidationSchema = zod.object({
   objective: zod.string().min(1, 'Informe uma tarefa'),
@@ -19,14 +19,14 @@ const newObjectiveFormValidationSchema = zod.object({
   author: zod.string().min(1),
   function: zod.string().min(1),
   dadObjective: zod.string(),
-  sector: zod.string(),
-  what: zod.string(),
-  where: zod.string(),
-  why: zod.string(),
-  when: zod.string(),
-  who: zod.string(),
-  how: zod.string(),
-  howMuch: zod.string(),
+  sector: zod.string().min(1),
+  what: zod.string().min(1),
+  where: zod.string().min(1),
+  why: zod.string().min(1),
+  when: zod.string().min(1),
+  who: zod.string().min(1),
+  how: zod.string().min(1),
+  howMuch: zod.string().min(1),
 })
 
 type NewObjectiveFormData = zod.infer<typeof newObjectiveFormValidationSchema>
@@ -42,6 +42,7 @@ export function CreateOkr() {
   function handleCreateNewObjective(data: NewObjectiveFormData) {
     CreateNewObjective(data)
     reset()
+    redirect('/okrs')
   }
 
   return (
@@ -57,14 +58,6 @@ export function CreateOkr() {
           <FormProvider {...newObjectiveForm}>
             <ObjectiveForm />
 
-            <DivBarContainer>
-              <ChartLineUp size={32} />
-              Plano de Ação
-              <button>
-                <CaretDown size={24} />
-              </button>
-            </DivBarContainer>
-            <PlanForm></PlanForm>
             <ButtonContainer type="submit">
               <Upload />
               Salvar

@@ -8,6 +8,10 @@ export const LoginPageContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 2.4rem;
+
+  @media (max-width: 700px) {
+    max-width: 667px;
+  } ;
 `
 
 export const FormContainer = styled.form`
