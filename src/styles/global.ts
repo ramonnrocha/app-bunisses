@@ -56,4 +56,10 @@ export const ContentContainer = styled.div`
     flex-direction: column;
     gap: 1rem;
   }
+
+  @media (max-width: 700px) {
+    width: 100%;
+    left: 0;
+    margin-right: 0;
+  } ;
 `

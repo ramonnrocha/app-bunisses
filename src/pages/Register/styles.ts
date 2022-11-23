@@ -18,8 +18,7 @@ export const RegisterContaier = styled.div`
 
   @media (max-width: 700px) {
     width: 100%;
-    height: auto;
-    margin-top: 10rem;
+    align-items: center;
   } ;
 `
 
@@ -36,6 +35,11 @@ export const FormContainer = styled.form`
   a {
     text-decoration: none;
   }
+
+  @media (max-width: 700px) {
+    width: 10rem;
+    align-items: center;
+  } ;
 `
 export const InputContainer = styled.input`
   width: 45rem;

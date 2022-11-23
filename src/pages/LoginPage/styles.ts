@@ -8,10 +8,6 @@ export const LoginPageContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 2.4rem;
-
-  @media (max-width: 700px) {
-    max-width: 667px;
-  } ;
 `
 
 export const FormContainer = styled.form`
@@ -27,6 +23,10 @@ export const FormContainer = styled.form`
   a {
     text-decoration: none;
   }
+  @media (max-width: 700px) {
+    width: 100%;
+    align-items: center;
+  } ;
 `
 export const InputContainer = styled.input`
   width: 45rem;

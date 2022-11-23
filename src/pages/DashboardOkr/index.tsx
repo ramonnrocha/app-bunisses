@@ -1,5 +1,6 @@
 import { Header } from '../../components/Header'
 import { NavBar } from '../../components/NavBar'
+import { ContentContainer } from '../../styles/global'
 import {
   DashboardContainer,
   DashInfo,
@@ -14,7 +15,7 @@ export function DashboardOkr() {
       <Header></Header>
       <NavBar></NavBar>
 
-      <DashboardContainer>
+      <ContentContainer>
         <DashInfo>
           <h2>DashBoard</h2>
           <StatsContainer>
@@ -37,7 +38,7 @@ export function DashboardOkr() {
           </StatsContainer>
           <FilterOkrContainer></FilterOkrContainer>
         </DashInfo>
-      </DashboardContainer>
+      </ContentContainer>
     </>
   )
 }

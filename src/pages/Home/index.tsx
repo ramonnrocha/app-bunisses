@@ -1,20 +1,16 @@
 import { PencilLine } from 'phosphor-react'
 import { Header } from '../../components/Header'
 import { NavBar } from '../../components/NavBar'
+import { ContentContainer } from '../../styles/global'
 
-import {
-  CoverContainer,
-  HomeContainer,
-  ProfileContainer,
-  SidebarContainer,
-} from './styles'
+import { CoverContainer, ProfileContainer, SidebarContainer } from './styles'
 
 export function Home() {
   return (
     <>
       <Header></Header>
       <NavBar></NavBar>
-      <HomeContainer>
+      <ContentContainer>
         <SidebarContainer>
           <CoverContainer></CoverContainer>
 
@@ -32,7 +28,7 @@ export function Home() {
             </a>
           </footer>
         </SidebarContainer>
-      </HomeContainer>
+      </ContentContainer>
     </>
   )
 }
