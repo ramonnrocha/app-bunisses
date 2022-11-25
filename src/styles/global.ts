@@ -62,6 +62,7 @@ export const ContentContainer = styled.div`
   @media (max-width: 700px) {
     width: 100%;
     left: 0;
+    margin-left: 0;
     margin-right: 0;
   } ;
 `

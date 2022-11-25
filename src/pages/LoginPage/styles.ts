@@ -15,7 +15,8 @@ export const LoginPageContainer = styled.div`
   }
 
   @media (max-width: 700px) {
-    width: 555px;
+    max-width: 555px;
+    width: 100%;
   } ;
 `
 

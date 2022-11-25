@@ -13,7 +13,7 @@ export const SidebarContainer = styled.div`
   overflow: hidden;
   height: 48.2rem;
   width: 33.8rem;
-  margin-left: 4rem;
+
   margin-top: 4rem;
   img {
     width: 10rem;

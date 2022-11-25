@@ -16,7 +16,8 @@ export const HeaderContainer = styled.header`
     overflow: hidden;
 
     @media (max-width: 700px) {
-      width: 555px;
+      max-width: 555px;
+      width: 100%;
       left: 0rem;
     }
   }
@@ -38,7 +39,7 @@ export const HeaderContainer = styled.header`
       gap: 0.8rem;
       cursor: pointer;
 
-      @media (max-width: 800px) {
+      @media (max-width: 700px) {
         visibility: hidden;
       }
 
