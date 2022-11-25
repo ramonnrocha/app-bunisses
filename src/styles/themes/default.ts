@@ -1,7 +1,7 @@
 export const defaultTheme = {
   white: '#FFF',
 
-  'blue-linear': '#5498FF',
+  'blue-linear': '#3466ff',
   'blue-hover': '#5699FF',
   'blue-medium': '#3485FF',
   'blue-black': '#0D114F',

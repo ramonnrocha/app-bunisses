@@ -18,6 +18,8 @@ export const LoginPageContainer = styled.div`
     max-width: 500px;
     width: 100%;
     font-size: 50%;
+    height: 100%;
+    margin-top: 8rem;
   } ;
 `
 
